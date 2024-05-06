@@ -1,0 +1,53 @@
+// Online C compiler to run C program online
+#include <stm32f4xx_h1.h>
+//definições dos pinos para leds e botões
+#define LED_GREEN_PIN GPIO_PIN_12
+#define LED_GREEN_GPIO_PORT GPIOD
+#define LED_BLUE_PIN GPIO_PIN_15
+#define LED_BLUE_GPIO_PORT GPIOD
+#define BUTTON_UP_PIN GPIO_PIN_0
+#define BUTTON_UP_GPIO_PORT GPIOA
+#define BUTTON_DOWN_PIN GPIO_PIN_1
+#define BUTTON_DOWN_GPIO_PORT GPIOA
+#define BUTTON_LEFT_PIN GPIO_PIN_2
+#define BUTTON_LEFT_GPIO_PORT GPIOA
+#define BUTTON_RIGHT_PIN GPIO_PIN_3
+#define BUTTON_RIGHT_GPIO_PORT GPIOA
+//estrutura para representar a posição de um objeto
+typedef struct {
+    int x;
+    int y;
+   } Position;
+   //variaveis globais
+   Position snake[100]; //array para armazenar as posições de cobras
+   int snakeLength = 1; /* comprimento inicial da cobra */
+   Position apple; //posição do coletavel
+   int score = 0; //placar do jogador
+   int record = 0; //recorde de coletaveis
+   
+   //função para inicializar e configurar o jogo
+   void Game_init(){
+   //configurar gpios para leds como saida;
+   GPIO_inittypedef GPIO_initstruct = {0};
+   GPIO_initstruct.pin = LED_GREEN_PIN | LED_BLUE_PIN;
+   GPIO.initstruct.mode = GPIO_MODE_OUTPUT;
+   //configurar gpios para botões como entrada
+   GPIO.initstruct.pin = BUTTON_UP_PIN | BUTTON_DOWN_PIN | BUTTON_RIGHT_PIN | BUTTON_LEFT_PIN;
+   GPIO_initstruct.mode = GPIO_MODE_INPUT;
+   GPIO_initstruct.pull = GPIO_PULLUP;
+   //inicializar temporizador
+   
+   }
+   //função para atualizar o jogo
+   void Game_update(){
+       //lógica de atualizar o jogo
+       
+   }
+   int main(void){
+       HALL_INIT();
+       Game_init();
+       while(1){
+           Game_update
+           }
+           //lógica de atualizar o jogo
+   }
